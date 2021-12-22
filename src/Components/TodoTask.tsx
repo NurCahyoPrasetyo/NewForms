@@ -7,12 +7,12 @@ interface Props {
 }
 const TodoTask = ({ task, completeTask }: Props) => {
     return (
-        <div className='task'>
-            <div className='content'>
-                <span>{task.taskName}</span>
-                <span>{task.deadLine}</span>
+        <div className='flex bg-white rounded-l-md mb-2 drop-shadow-md'>
+            <div className='mr-5 p-4 task'>
+                <p>Name Task : <span>{task.taskName}</span></p>
+                <p>Days :<span>{task.deadLine}</span></p>
             </div>
-            <button onClick={() => {completeTask(task.taskName)}}>X</button>
+            <button className='bg-red-500 p-4 text-white font-bold rounded-r-md' onClick={() => {completeTask(task.taskName)}}>X</button>
         </div>
     );
 };

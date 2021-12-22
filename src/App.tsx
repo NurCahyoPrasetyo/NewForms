@@ -19,7 +19,6 @@ const App: FC = () => {
   const addTask = (): void => {
     const newTask = { taskName: task, deadLine: deadLine };
     setTodoList([...todoList, newTask]);
-    console.log(todoList)
     setTask("");
     setDeadLine(0);
 
@@ -32,29 +31,40 @@ const App: FC = () => {
   };
 
   return (
-    <div className="App">
-      <div className="header">
-        <div className="inputContainer">
-          <input
-            type="text"
-            placeholder="Task ..."
-            name="task"
-            value={task}
-            onChange={handleChange}
-          />
-          <input
-            type="number"
-            placeholder="Dead Line (in Days) ..."
-            name="deadline"
-            value={deadLine}
-            onChange={handleChange}
-          />
-        </div>
-        <button onClick={addTask}>Add Task</button>
+    <div className="antialiased relative flex flex-col min-h-screen bg-gray-200 font-mono">
+      <div className=' h-auto w-full py-3 px-3'>
+        <h1 className='font-semibold text-3xl my-4 text-gray-800 text-center capitalize'>
+          Simulasi Input Task use TypeScript
+        </h1>
       </div>
-      <div className="todoList">
+      <div className="header h-40 w-full py-3 px-3 md:px-16 overflow-hidden">
+        <div className="inputContainer">
+          <div className='bg-white p-2 m-1 rounded-md shadow-sm'>
+            <p className='text-xs'>Task :</p>
+            <input
+              type="text"
+              placeholder="Task ..."
+              name="task"
+              value={task}
+              onChange={handleChange}
+            />
+          </div>
+          <div className='bg-white p-2 m-1 rounded-md shadow-sm'>
+            <p className='text-xs'>Days :</p>
+            <input
+              type="number"
+              placeholder="Dead Line (in Days) ..."
+              name="deadline"
+              value={deadLine}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
+        <button className='items-center font-bold bg-white text-gray-400 shadow-sm h-auto' onClick={addTask}>Add Task</button>
+      </div>
+      <div className="todoList max-h-full">
         {todoList.map((task: ITask, key: number) => {
-          return <TodoTask key={key} task={task} completeTask={completeTask}/>
+          return <TodoTask key={key} task={task} completeTask={completeTask} />
         })}
       </div>
     </div>
