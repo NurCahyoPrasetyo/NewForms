@@ -1,4 +1,3 @@
-# NewForms
 <h1 align="center"> 
   Simulasi Input Task Use TypeScript      
 </h1>
